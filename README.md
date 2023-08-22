@@ -1,7 +1,6 @@
 <h1 align="center">Hi 👋, I'm João</h1>
 <h3 align="center">A passionate frontend developer from Brazil</h3>
 
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=joaorafa19" alt="joaorafa19" /></a> </p>
 
 - 🌱 I’m currently learning **Go**
 
@@ -10,6 +9,52 @@
 - 📫 How to reach me **joaopedrorafael19@gmail.com**
 
 - 📄 Know about my experiences [http://www.linkedin.com/in/joaopedrorafael](http://www.linkedin.com/in/joaopedrorafael)
+
+```dart
+class Joao extends Human {
+  late final String? nationality;
+  late final String? localization;
+
+  @override
+  Joao(String name, {String? nationality, String? localization}) : super(name) {
+    nationality ??= "Brazilian";
+    localization ??= "Belo Horizonte, MG";
+  }
+
+  final List<String> languages = [
+    "Portuguese",
+    "English",
+  ];
+
+  final Map<String, dynamic> technologies = {
+    "Flutter": ["GetX", "Provider", "MobX", "Bloc"],
+    "GoLang": ["GinGonic", "gorm"],
+    "Dart": ["Shelf", "Dio"],
+    "JavaScript": ["React.js", "Express"],
+    "Python": ["Django", "Flask", "Qt", "Pygame"],
+  };
+
+  final Map<String, dynamic> databases = {
+    "SQL": ["PostgreSQL", "MySQL", "SQLite"],
+    "NoSQL": ["MongoDB", "Redis"],
+  };
+
+  String getTechologies(String stack) {
+    switch (stack) {
+      case "Flutter":
+        return "GetX, Provider, MobX, Bloc, Firebase, Supabase, Dio";
+      case "Frontend":
+        return "Flutter, React.js, Tailwind";
+      case "Backend":
+        return "GoLang, Django, Flask, Node.js, Shelf";
+      case "Mobile":
+        return "Flutter";
+    }
+    return technologies[Random().nextInt(10)];
+  }
+}
+```
+
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
