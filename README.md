@@ -11,7 +11,7 @@
 - 📄 Know about my experiences [http://www.linkedin.com/in/joaopedrorafael](http://www.linkedin.com/in/joaopedrorafael)
 
 ```dart
-class Joao extends Human {
+class Joao extends Human implements SoftwareDeveloper {
   late final String? nationality;
   late final String? localization;
 
