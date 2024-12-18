@@ -10,49 +10,61 @@
 
 - 📄 Know about my experiences [http://www.linkedin.com/in/joaopedrorafael](http://www.linkedin.com/in/joaopedrorafael)
 
-```dart
-class Joao extends Human implements SoftwareDeveloper {
-  late final String? nationality;
-  late final String? localization;
 
-  @override
-  Joao(String name, {String? nationality, String? localization}) : super(name) {
-    nationality ??= "Brazilian";
-    localization ??= "Belo Horizonte, MG";
-  }
+## Meet João, the Software Developer 👨‍💻
 
-  final List<String> languages = [
-    "Portuguese",
-    "English",
-  ];
+```go
 
-  final Map<String, dynamic> technologies = {
-    "Flutter": ["GetX", "Provider", "MobX", "Bloc"],
-    "GoLang": ["GinGonic", "gorm"],
-    "Dart": ["Shelf", "Dio"],
-    "JavaScript": ["React.js", "Express"],
-    "Python": ["Django", "Flask", "Qt", "Pygame"],
-  };
+package main
 
-  final Map<String, dynamic> databases = {
-    "SQL": ["PostgreSQL", "MySQL", "SQLite"],
-    "NoSQL": ["MongoDB", "Redis"],
-  };
+import "fmt"
 
-  String getTechologies(String stack) {
-    switch (stack) {
-      case "Flutter":
-        return "GetX, Provider, MobX, Bloc, Firebase, Supabase, Dio";
-      case "Frontend":
-        return "Flutter, React.js, Tailwind";
-      case "Backend":
-        return "GoLang, Django, Flask, Node.js, Shelf";
-      case "Mobile":
-        return "Flutter";
-    }
-    return technologies[Random().nextInt(10)];
-  }
+// Joao represents a skilled software developer.
+type Joao struct {
+	Name         string
+	Nationality  string
+	Localization string
+	Languages    []string
+	Technologies map[string][]string
 }
+
+// NewJoao initializes João with default values if none are provided.
+func NewJoao(name, nationality, localization string) Joao {
+	if nationality == "" {
+		nationality = "Brazilian"
+	}
+	if localization == "" {
+		localization = "Belo Horizonte, MG"
+	}
+
+	return Joao{
+		Name:         name,
+		Nationality:  nationality,
+		Localization: localization,
+		Languages:    []string{"Portuguese", "English"},
+		Technologies: map[string][]string{
+			"Frontend": {"React.js", "Flutter", "Tailwind"},
+			"Backend":  {"GoLang", "Django", "Node.js"},
+			"Mobile":   {"Flutter"},
+		},
+	}
+}
+
+// Introduce prints a brief introduction about João.
+func (j Joao) Introduce() {
+	fmt.Printf("Hi, I'm %s! A %s developer from %s.\n", j.Name, j.Nationality, j.Localization)
+	fmt.Printf("I speak %v and specialize in:\n", j.Languages)
+	for stack, tools := range j.Technologies {
+		fmt.Printf("- %s: %v\n", stack, tools)
+	}
+}
+
+func main() {
+	joao := NewJoao("João", "", "")
+	joao.Introduce()
+}
+
+
 ```
 
 
