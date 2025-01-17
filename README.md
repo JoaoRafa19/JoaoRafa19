@@ -9,7 +9,7 @@
 
 ### 🌐 About Me
 - 🌎 Based in **Brazil**, building software that solves problems.  
-- ✍️ Currently learning **AI in software development**.
+- ✍️ Currently learning **Blockchain development**.
 - 🤝 Open to collaborating on **exciting open-source projects**.
 - 📫 Reach me at **joaopedrorafael19@gmail.com**.
 - 💼 Check out my experiences on [LinkedIn](http://www.linkedin.com/in/joaopedrorafael).
