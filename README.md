@@ -15,6 +15,7 @@
 - 💼 Check out my experiences on [LinkedIn](http://www.linkedin.com/in/joaopedrorafael).
 
 ---
+[![Waka Readme](https://github.com/JoaoRafa19/JoaoRafa19/actions/workflows/blank.yml/badge.svg)](https://github.com/JoaoRafa19/JoaoRafa19/actions/workflows/blank.yml)
 
 ### 🛠️ Languages and Tools
 <p align="left">
