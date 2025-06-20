@@ -1,0 +1,24 @@
+{
+  "name": "joaorafa19.github.io",
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\">Hi 👋, I'm João</h1> <h3 align=\"center\">A passionate frontend developer from Brazil</h3>",
+  "main": "index.js",
+  "scripts": {
+    "tailinit": "tailwindcss init ",
+    "tailwind": "tailwindcss -i ./static/css/input.css -o ./static/css/output.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoaoRafa19/joaorafa19.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoaoRafa19/joaorafa19.github.io/issues"
+  },
+  "homepage": "https://github.com/JoaoRafa19/joaorafa19.github.io#readme",
+  "devDependencies": {
+    "tailwindcss": "^4.1.10"
+  }
+}
