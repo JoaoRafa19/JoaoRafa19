@@ -1,0 +1,117 @@
+package layouts
+
+import (
+		"github.com/JoaoRafa19/portifolio/ui/components"
+		"github.com/JoaoRafa19/portifolio/ui/components/footer"
+		
+
+)
+
+templ ThemeSwitcherScript() {
+	{{ handle := templ.NewOnceHandle() }}
+	@handle.Once() {
+		<script nonce={ templ.GetNonce(ctx) }>
+			document.documentElement.classList.toggle('dark', localStorage.getItem('appTheme') === 'dark');
+
+			document.addEventListener('alpine:init', () => {
+				Alpine.data('themeHandler', () => ({
+					isDark: localStorage.getItem('appTheme') === 'dark',
+					themeClasses() {
+						return this.isDark ? 'text-white' : 'bg-white text-black'
+					},
+					toggleTheme() {
+						this.isDark = !this.isDark;
+						localStorage.setItem('appTheme', this.isDark ? 'dark' : 'light');
+						document.documentElement.classList.toggle('dark', this.isDark);
+					}
+				}))
+			})
+		</script>
+	}
+}
+
+templ BaseLayout(title string) {
+	<!DOCTYPE html>
+	<html lang="en" class="h-full dark">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<!-- Tailwind CSS (output) -->
+			<title>{ title }</title>
+    		<script src="https://cdn.tailwindcss.com"></script>
+
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+			<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+			<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+		    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+			<script src="https://unpkg.com/htmx.org@1.9.12" defer></script>
+			<!-- Font Awesome -->
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" xintegrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+			<link href="/assets/css/output.css" rel="stylesheet"/>
+			<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+			<style>
+						/* Estilo da fonte principal */
+				body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #0f0c29);
+            background-size: 400% 400%;
+            animation: gradientBG 25s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Classe para adicionar efeito de vidro fosco */
+        .glass-effect {
+             background: rgba(17, 24, 39, 0.6);
+             backdrop-filter: blur(10px);
+             -webkit-backdrop-filter: blur(10px);
+        }
+
+        /* Efeito de destaque para os títulos das seções */
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: #6366f1; /* Cor indigo-500 */
+            border-radius: 2px;
+        }
+			</style>
+			<!-- Alpine.js -->
+			<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+			<!-- Theme switcher script -->
+			@ThemeSwitcherScript()
+		</head>
+		<body
+			x-data="themeHandler"
+			x-bind:class="themeClasses"
+			class="bg-gray-900 text-gray-200 antialiased selection:bg-indigo-500 selection:text-white"
+		>
+			@components.Header()
+			<main class="">
+				{ children... }
+			</main>
+			@footer.Footer()
+		</body>
+	</html>
+}

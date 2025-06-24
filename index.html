@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu Nome | Desenvolvedor Go</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Alpine.js para interatividade (alternativa ao JS puro para o menu) -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Font Awesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" xintegrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #0f0c29);
+            background-size: 400% 400%;
+            animation: gradientBG 25s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Classe para adicionar efeito de vidro fosco */
+        .glass-effect {
+             background: rgba(17, 24, 39, 0.6);
+             backdrop-filter: blur(10px);
+             -webkit-backdrop-filter: blur(10px);
+        }
+
+        /* Efeito de destaque para os títulos das seções */
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: #6366f1; /* Cor indigo-500 */
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="
+bg-gray-900 text-gray-200 antialiased selection:bg-indigo-500 selection:text-white">
+
+    <!-- =========== Cabeçalho (Header) =========== -->
+    <header x-data="{ mobileMenuOpen: false }" class="glass-effect sticky top-0 z-50 border-b border-gray-500/20">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <a href="#hero" class="text-2xl font-bold text-white hover:text-indigo-400 transition-colors duration-300">
+                        João R.
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#about" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">Sobre</a>
+                        <a href="#projects" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">Projetos</a>
+                        <a href="#contact" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">Contato</a>
+                    </div>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700">
+                        <i class="fa-solid" :class="mobileMenuOpen ? 'fa-xmark' : 'fa-bars'"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div x-show="mobileMenuOpen" @click.away="mobileMenuOpen = false" class="md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" @click="mobileMenuOpen = false" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Sobre</a>
+                <a href="#projects" @click="mobileMenuOpen = false" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projetos</a>
+                <a href="#contact" @click="mobileMenuOpen = false" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contato</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- =========== Seção Hero =========== -->
+        <section id="hero" class="min-h-[90vh] flex items-center">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="max-w-4xl mx-auto">
+                    <p class="mb-3 text-indigo-400 font-semibold">Olá, meu nome é</p>
+                    <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mb-4">
+                        João Rafael.
+                    </h1>
+                    <h2 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-gray-400 mb-8">
+                        Eu construo soluções para a web.
+                    </h2>
+                    <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10">
+                        Sou um desenvolvedor Go especializado em criar aplicações backend robustas, escaláveis e de alta performance. Bem-vindo ao meu espaço digital.
+                    </p>
+                    <a href="#contact" class="inline-block bg-indigo-600 text-white font-bold py-4 px-8 rounded-lg hover:bg-indigo-500 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-indigo-500/50">
+                        Entre em Contato
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========== Seção Sobre (About) =========== -->
+        <section id="about" class="py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                 <h2 class="section-title text-3xl font-bold text-center text-white mb-16">Sobre Mim</h2>
+                <div class="max-w-4xl mx-auto grid md:grid-cols-5 gap-12 items-center">
+                    <div class="md:col-span-3 text-gray-300 text-lg leading-relaxed">
+                        <p class="mb-4">
+                            Olá! Eu sou o João, um desenvolvedor apaixonado por resolver problemas através de código. Minha jornada na programação começou com o desejo de construir coisas úteis, e hoje tenho o prazer de trabalhar com tecnologias de ponta para criar aplicações web eficientes.
+                        </p>
+                        <p class="mb-4">
+                           Minha principal ferramenta é o <strong class="text-indigo-300">Go (Golang)</strong>, pela sua simplicidade, performance e ecossistema robusto para o desenvolvimento backend. Tenho experiência sólida na construção de <strong class="text-indigo-300">APIs RESTful</strong>, arquitetura de <strong class="text-indigo-300">microsserviços</strong> e na integração com diversos bancos de dados.
+                        </p>
+                         <p>Aqui estão algumas tecnologias com as quais tenho trabalhado recentemente:</p>
+                         <ul class="mt-4 grid grid-cols-2 gap-2">
+                             <li class="flex items-center"><i class="fa-solid fa-caret-right text-indigo-400 mr-2"></i>Go (Golang)</li>
+                             <li class="flex items-center"><i class="fa-solid fa-caret-right text-indigo-400 mr-2"></i>Docker & Kubernetes</li>
+                             <li class="flex items-center"><i class="fa-solid fa-caret-right text-indigo-400 mr-2"></i>PostgreSQL</li>
+                             <li class="flex items-center"><i class="fa-solid fa-caret-right text-indigo-400 mr-2"></i>gRPC</li>
+                             <li class="flex items-center"><i class="fa-solid fa-caret-right text-indigo-400 mr-2"></i>Templ & htmx</li>
+                             <li class="flex items-center"><i class="fa-solid fa-caret-right text-indigo-400 mr-2"></i>Gin / Fiber</li>
+                         </ul>
+                    </div>
+                     <div class="md:col-span-2 flex justify-center">
+                         <div class="relative w-64 h-64">
+                             <div class="absolute inset-0 bg-indigo-500 rounded-lg transform -rotate-6"></div>
+                             <img src="https://placehold.co/400x400/111827/FFFFFF?text=Sua+Foto" alt="Sua Foto" class="relative w-full h-full object-cover rounded-lg shadow-xl">
+                         </div>
+                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========== Seção Projetos (Projects) =========== -->
+        <section id="projects" class="py-24 bg-gray-900/50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title text-3xl font-bold text-center text-white mb-16">Meus Projetos</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Projeto 1 -->
+                    <div class="glass-effect rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 flex flex-col">
+                        <div class="p-6 flex-grow">
+                             <div class="flex justify-between items-start mb-4">
+                                <i class="fa-solid fa-folder-open text-3xl text-indigo-400"></i>
+                                <div class="text-right">
+                                    <a href="#" class="text-gray-400 hover:text-indigo-400 transition-colors"><i class="fab fa-github fa-lg"></i></a>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Projeto Incrível</h3>
+                            <p class="text-gray-400 mb-4">Uma API RESTful para um sistema de gerenciamento de tarefas, construída com foco em performance e escalabilidade.</p>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <div class="flex flex-wrap gap-2 text-sm text-gray-400">
+                                <span class="font-mono">Go</span>
+                                <span class="font-mono">Gin</span>
+                                <span class="font-mono">PostgreSQL</span>
+                                <span class="font-mono">JWT</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 2 -->
+                    <div class="glass-effect rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 flex flex-col">
+                        <div class="p-6 flex-grow">
+                             <div class="flex justify-between items-start mb-4">
+                                <i class="fa-solid fa-folder-open text-3xl text-indigo-400"></i>
+                                <div class="text-right">
+                                    <a href="#" class="text-gray-400 hover:text-indigo-400 transition-colors"><i class="fab fa-github fa-lg"></i></a>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Ferramenta de CLI</h3>
+                            <p class="text-gray-400 mb-4">Uma ferramenta de linha de comando para automatizar o deploy de aplicações, construída com o pacote Cobra.</p>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <div class="flex flex-wrap gap-2 text-sm text-gray-400">
+                                <span class="font-mono">Go</span>
+                                <span class="font-mono">Cobra</span>
+                                <span class="font-mono">Viper</span>
+                                <span class="font-mono">Docker API</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 3 -->
+                    <div class="glass-effect rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 flex flex-col">
+                        <div class="p-6 flex-grow">
+                             <div class="flex justify-between items-start mb-4">
+                                <i class="fa-solid fa-folder-open text-3xl text-indigo-400"></i>
+                                <div class="text-right">
+                                    <a href="#" class="text-gray-400 hover:text-indigo-400 transition-colors"><i class="fab fa-github fa-lg"></i></a>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Este Portfólio</h3>
+                            <p class="text-gray-400 mb-4">Meu portfólio pessoal, desenvolvido do zero com Go no backend e a biblioteca Templ para componentização.</p>
+                        </div>
+                        <div class="p-6 pt-0">
+                             <div class="flex flex-wrap gap-2 text-sm text-gray-400">
+                                <span class="font-mono">Go</span>
+                                <span class="font-mono">Templ</span>
+                                <span class="font-mono">TailwindCSS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =========== Seção Contato (Contact) =========== -->
+        <section id="contact" class="py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-2xl">
+                 <h2 class="text-2xl font-bold text-indigo-400 mb-2">Qual o próximo passo?</h2>
+                <h3 class="section-title text-4xl font-extrabold text-white mb-6">Entre em Contato</h3>
+                <p class="text-gray-300 text-lg mb-8">
+                    Estou atualmente em busca de novas oportunidades e meu inbox está sempre aberto. Se você tem uma pergunta, uma proposta, ou apenas quer dizer "oi", farei o meu melhor para responder!
+                </p>
+                <a href="mailto:seu-email@exemplo.com" class="inline-block bg-indigo-600 text-white font-bold py-4 px-8 rounded-lg hover:bg-indigo-500 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-indigo-500/50">
+                    Diga Olá
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- =========== Rodapé (Footer) =========== -->
+    <footer class="py-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="#" class="text-gray-400 hover:text-indigo-400 transition-colors text-xl"><i class="fab fa-github"></i></a>
+                <a href="#" class="text-gray-400 hover:text-indigo-400 transition-colors text-xl"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="text-gray-400 hover:text-indigo-400 transition-colors text-xl"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p class="text-sm">
+                Projetado e construído por João Rafael.
+            </p>
+             <p class="text-xs mt-1">
+                &copy; 2024. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>

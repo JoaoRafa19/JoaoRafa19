@@ -1,0 +1,51 @@
+package dialog
+
+
+templ DialogForm() {
+    <form class="dialog-form flex flex-col gap-4 p-6 bg-white rounded shadow-md w-full max-w-lg mx-auto">
+        <label for="name" class="font-semibold">Nome:</label>
+        <input type="text" id="name" name="name" required class="input input-bordered" />
+
+        <label for="email" class="font-semibold">Email:</label>
+        <input type="email" id="email" name="email" required class="input input-bordered" />
+
+        <label for="message" class="font-semibold">Mensagem:</label>
+        <textarea id="message" name="message" required class="textarea textarea-bordered"></textarea>
+
+        <button   type="submit" class="btn btn-primary w-full" onclick="event.preventDefault(); document.getElementById('dialogForm').close();">Enviar</button>
+
+    </form>
+}
+
+var dialogFormHandle = templ.NewOnceHandle()
+
+templ ShowDialogForm(show bool) {
+    if show {
+        <dialog id="dialogForm"
+            class="dialog"
+            open
+            hx-post="/api/contact"
+            hx-headers='{"X-CSRF-Token": "{{.csrfToken}}"}'
+            hx-boost="true"
+            hx-target="this"
+            hx-swap="outerHTML"
+            hx-indicator="#dialogForm"
+            onclick="closeDialogIfOutside(this, event)"
+            
+        >
+            <div 
+                hx-get="/contact/dialog?show=false"
+                hx-target="#dialogForm"
+                hx-swap="innerHTML" 
+            class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+                
+                <div class="relative" onclick="event.stopPropagation()">
+                    @DialogForm()
+                </div>
+            </div>
+        </dialog>
+    } else {
+        // Não renderiza o dialog se show for falso
+        <></>
+    }
+}

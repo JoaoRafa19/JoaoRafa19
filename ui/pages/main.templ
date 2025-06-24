@@ -1,0 +1,23 @@
+package pages
+
+import (
+	"github.com/JoaoRafa19/portifolio/ui/components"
+	"github.com/JoaoRafa19/portifolio/ui/components/dialog"
+	"github.com/JoaoRafa19/portifolio/ui/layouts"
+)
+
+
+templ HomePage(dialogOpen bool) {
+    @layouts.BaseLayout("Meu Portfólio"){
+        <div id="dialog-container">
+            if dialogOpen {
+                @dialog.ShowDialogForm(true)
+            }
+        </div>
+
+ 		@components.Hero()
+ 		@components.About()
+ 		@components.Projects()
+ 		@components.Contact()
+ 	}
+}

@@ -1,0 +1,74 @@
+package components
+
+type Project struct {
+	Title       string
+	Description string
+	Tags        []string
+	Link        string
+}
+
+templ Projects() {
+	{{var projects = []Project{
+		{
+			Title:       "API RESTful de Tarefas",
+			Description: "Uma API robusta para um sistema de gerenciamento de tarefas, com foco em performance e escalabilidade.",
+			Tags:        []string{"Go", "Gin", "PostgreSQL", "JWT"},
+			Link:        "https://github.com/seu-usuario/seu-repo1",
+		},
+		{
+			Title:       "Ferramenta de CLI",
+			Description: "Uma ferramenta de linha de comando para automatizar o deploy de aplicações, construída com o pacote Cobra.",
+			Tags:        []string{"Go", "CLI", "Cobra", "Viper"},
+			Link:        "https://github.com/seu-usuario/seu-repo2",
+		},
+		{
+			Title:       "Meu Portfólio Pessoal",
+			Description: "Este site! Desenvolvido do zero com Go no backend e a biblioteca Templ para componentização do frontend.",
+			Tags:        []string{"Go", "Templ", "TailwindCSS"},
+			Link:        "https://github.com/seu-usuario/seu-portfolio",
+		},
+	}}}
+
+	<section id="projects" class="py-24 bg-gray-900/50">
+		<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+			<h2 class="section-title text-3xl font-bold text-center text-white mb-16">Meus Projetos</h2>
+
+			// As estruturas 'if' e 'for' também são escritas diretamente.
+			if len(projects) > 0 {
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+					for _, project := range projects {
+						@ProjectCard(project)
+					}
+				</div>
+			} else {
+				<p class="text-gray-300 text-center">Nenhum projeto encontrado no momento.</p>
+			}
+		</div>
+	</section>
+}
+
+templ ProjectCard(p Project) {
+	<div class="glass-effect rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 flex flex-col">
+		<div class="p-6 flex-grow">
+			<div class="flex justify-between items-start mb-4">
+				<i class="fa-solid fa-folder-open text-3xl text-indigo-400"></i>
+				<div class="text-right">
+					// Atributos HTML usam a sintaxe: href={ templ.URL(...) }
+					<a href={ templ.URL(p.Link) } target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-indigo-400 transition-colors">
+						<i class="fab fa-github fa-lg"></i>
+					</a>
+				</div>
+			</div>
+			// Para exibir o valor de uma variável no HTML, usamos chaves simples.
+			<h3 class="text-xl font-bold text-white mb-2">{ p.Title }</h3>
+			<p class="text-gray-400 mb-4">{ p.Description }</p>
+		</div>
+		<div class="p-6 pt-0">
+			<div class="flex flex-wrap gap-2 text-sm text-gray-400">
+				for _, tag := range p.Tags {
+					<span class="font-mono">{ tag }</span>
+				}
+			</div>
+		</div>
+	</div>
+}

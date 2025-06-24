@@ -1,0 +1,30 @@
+package components
+
+templ Hero() {
+	<section id="hero" class="min-h-[90vh] flex items-center">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="max-w-4xl mx-auto">
+                <p class="mb-3 text-indigo-400 font-semibold">Olá, meu nome é</p>
+                <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mb-4">
+                    João Rafael.
+                </h1>
+                <h2 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-gray-400 mb-8">
+                    Eu construo soluções para a web.
+                </h2>
+                <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10">
+                    Sou um desenvolvedor Go especializado em criar aplicações backend robustas, escaláveis e de alta performance. Bem-vindo ao meu espaço digital.
+                </p>
+                <button 
+                hx-get="/contact/dialog"      
+                hx-target="#dialog-container" 
+                hx-swap="innerHTML"           
+                class="btn btn-primary"
+                >
+                    <a href="#contact" class="inline-block bg-indigo-600 text-white font-bold py-4 px-8 rounded-lg hover:bg-indigo-500 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-indigo-500/50">
+                        Entre em Contato
+                    </a>
+                </button>
+            </div>
+        </div>
+    </section>
+}
