@@ -75,3 +75,5 @@
     <img src="https://img.shields.io/badge/-GitHub-333?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
   </a>
 </p>
+
+[![João Pedro Rafael Santos Silva profile views](https://u8views.com/api/v1/github/profiles/50741246/views/day-week-month-total-count.svg)](https://u8views.com/github/JoaoRafa19)
