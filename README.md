@@ -1,32 +1,25 @@
-# 👋 Olá, eu sou JoaoRafa19!
+# 👋 Olá, eu sou João Rafael
 
-## 💼 Cargo
-**Programador**
+Software Engineer (Golang) na Shopee, focado em backend de alta escala e sistemas distribuídos.
 
-## 🧑‍💻 Bio
-Programador apaixonado por tecnologia, especialmente Golang e outras stacks modernas. Sempre buscando desafios e aprendizados em projetos reais.
+## 💼 Sobre
+- Atualmente: Software Engineer na Shopee
+- Especialidade: Go, APIs e arquitetura de serviços
+- Interesse: performance, confiabilidade e boas práticas de engenharia
 
-## 🚀 Projetos Favoritos
+## 🚀 Projetos em destaque
+- [GoBid](https://github.com/JoaoRafa19/gobid) — backend para leilões online com lances em tempo real
+- [CryptoGo](https://github.com/JoaoRafa19/crypto-go) — implementação de blockchain genérica em Go
+- [myhousetask](https://github.com/JoaoRafa19/myhousetask) — aplicação web para gestão de tarefas
 
-- [GoBid](https://github.com/JoaoRafa19/gobid): Backend robusto e escalável para uma plataforma de leilões online, usando Go e WebSockets para lances em tempo real.
-- [CryptoGo](https://github.com/JoaoRafa19/crypto-go): Blockchain genérica para usos como arquivos de escritório e criptomoedas, desenvolvida em Go.
-- [myhousetask](https://github.com/JoaoRafa19/myhousetask): Aplicação web para rastreio de processos e tarefas, combinando Go, templ, HTML e JavaScript.
+## 🛠️ Stack principal
+- Go (Golang)
+- APIs e microsserviços
+- Sistemas distribuídos
+- PostgreSQL
+- Docker
 
-## 🛠️ Tecnologias & Skills
-- **Golang** (Go)
-- Web APIs & Backend
-- Blockchain & Criptomoedas
-- Real-time systems (WebSocket)
-- HTML, CSS, JavaScript
-- Docker, Makefile
-
-## 📂 Outros Projetos
+## 📌 Outros repositórios
 - [taskfy](https://github.com/JoaoRafa19/taskfy)
 - [pgstoretools](https://github.com/JoaoRafa19/pgstoretools)
 - [rpg-go-learning](https://github.com/JoaoRafa19/rpg-go-learning)
-
-## 🌱 Em busca de novos desafios e oportunidades para crescer como desenvolvedor!
-
----
-
-> _Programador, Golang e outras techs_
