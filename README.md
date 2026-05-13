@@ -21,7 +21,7 @@ Software Engineer (Golang) na Shopee, focado em backend de alta escala e sistema
 - Docker
 
 ## 📌 Outros repositórios
-- 
+- [myhousetask](https://github.com/JoaoRafa19/myhousetask)
 - [taskfy](https://github.com/JoaoRafa19/taskfy)
 - [pgstoretools](https://github.com/JoaoRafa19/pgstoretools)
 - [rpg-go-learning](https://github.com/JoaoRafa19/rpg-go-learning)
